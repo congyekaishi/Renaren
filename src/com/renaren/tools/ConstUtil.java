@@ -1,6 +1,8 @@
 package com.renaren.tools;
 
 public class ConstUtil {
+	//test
+	public final static Stirng test="";
 	// 我要测评
 	public final static String CP = "http://www.renaren.com/api/app/cp.php";
 	// 登录
