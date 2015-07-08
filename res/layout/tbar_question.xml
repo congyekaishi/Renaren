@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分类页顶部标题栏 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tbar_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/wathetBlue"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_weight="0.01"
+        android:background="@drawable/tbar_back_default" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="A模块"
+        android:textColor="@color/defaultWhite"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.01"
+        android:gravity="center"
+        android:text="129/193"
+        android:textColor="@color/defaultWhite"
+        android:textSize="12sp" />
+
+</LinearLayout>
