@@ -32,9 +32,9 @@ import com.renaren.tools.ListUtil;
 import com.renaren.view.TitleBarView;
 
 public class IntroduceActivity extends Activity {
-//AAAAAAAAAAAAAAAAAAAAAAAAAAAa
 
 	//隔壁老王
+	//老王在隔壁
 
 	@InjectView(R.id.mbtiList)
 	ListView LvMbti;
