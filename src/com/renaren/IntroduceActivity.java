@@ -35,6 +35,7 @@ public class IntroduceActivity extends Activity {
 
 	//隔壁老王
 	//老王在隔壁
+	//123
 
 	@InjectView(R.id.mbtiList)
 	ListView LvMbti;
