@@ -33,6 +33,8 @@ import com.renaren.view.TitleBarView;
 
 public class IntroduceActivity extends Activity {
 
+	//隔壁老王
+
 	@InjectView(R.id.mbtiList)
 	ListView LvMbti;
 	@InjectView(R.id.title_bar)
