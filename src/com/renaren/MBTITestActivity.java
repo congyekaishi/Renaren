@@ -12,19 +12,19 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Toast;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 import com.renaren.tools.ConstUtil;
 import com.renaren.view.LJWebView;
 import com.renaren.view.TitleBarView;
+
+import java.net.URLEncoder;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 public class MBTITestActivity extends Activity {
 	@InjectView(R.id.title_bar)
@@ -136,9 +136,8 @@ public class MBTITestActivity extends Activity {
 		String a;
 
 		cookieManager.setCookie(url,
-				"pre_user_auth=" + sp.getString("token", null) + ";domain="
+				"pre_user_auth=" + URLEncoder.encode(sp.getString("token", null)) + ";domain="
 						+ ConstUtil.COOKIE_DOMAIN + ";path=/;expires=3600");
-
 		CookieSyncManager.getInstance().sync();
 	}
 

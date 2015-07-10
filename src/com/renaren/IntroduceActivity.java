@@ -71,6 +71,8 @@ public class IntroduceActivity extends Activity {
 		new Thread(getMBTIList).start();
 	}
 
+	String pJson;
+
 	Runnable getMBTIList = new Runnable() {
 
 		@Override
@@ -82,6 +84,7 @@ public class IntroduceActivity extends Activity {
 			param.put("user_auth", sp.getString("token", null));
 			try {
 				json = HttpUtil.postRequest(ConstUtil.CP, param);
+				pJson = json;
 				Gson gson = new Gson();
 				MbtiCodes = gson.fromJson(json,
 						new TypeToken<ArrayList<MbtiCode>>() {
@@ -152,6 +155,8 @@ public class IntroduceActivity extends Activity {
 								}
 							}
 						});
+//				Toast.makeText(getApplicationContext(),pJson,Toast.LENGTH_LONG).show();
+//				Toast.makeText(getApplicationContext(), sp.getString("token", null),Toast.LENGTH_LONG).show();
 				LvMbti.setAdapter(adapter);
 				ListUtil.setListViewHeightBasedOnChildren(LvMbti);
 				break;
