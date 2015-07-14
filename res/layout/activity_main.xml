@@ -62,6 +62,7 @@
             <RelativeLayout
                 android:id="@+id/recommend"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView
@@ -90,6 +91,7 @@
             <RelativeLayout
                 android:id="@+id/appraisal"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView
@@ -118,6 +120,7 @@
             <RelativeLayout
                 android:id="@+id/bbs"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView
@@ -146,6 +149,7 @@
             <RelativeLayout
                 android:id="@+id/train"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView
@@ -174,6 +178,7 @@
             <RelativeLayout
                 android:id="@+id/userInfo"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView
@@ -202,6 +207,7 @@
             <RelativeLayout
                 android:id="@+id/loginOut"
                 android:layout_width="match_parent"
+                android:background="@drawable/selector_viewgroup_bg"
                 android:layout_height="50dp" >
 
                 <TextView

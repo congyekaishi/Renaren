@@ -28,6 +28,8 @@ public class ConstUtil {
     // 培训
     public final static String TRAIN = CONSTANT + "page/train.php?client=app";
     // 忘记密码
-    public final static String FORGET_PASSWORD = CONSTANT + "forget.php?client=app&user_auth=";
+    public final static String FORGET_PASSWORD = CONSTANT + "/member/forget.php?client=app&user_auth=";
+    //版本升级
+    public final static String VERUP = "http://192.168.8.204/test/api/app/version.php?device=android";
 
 }
