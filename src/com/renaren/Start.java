@@ -14,7 +14,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.ImageView;
 
@@ -121,6 +120,7 @@ public class Start extends Activity {
                                 intent.setClassName("com.android.settings",
                                         "com.android.settings.Settings");
                                 startActivity(intent);
+                                System.exit(0);
                             }
                         })
                 .setNegativeButton("退出",  new DialogInterface.OnClickListener() {
@@ -346,16 +346,16 @@ public class Start extends Activity {
     }
 
 
-    // 按两次返回键退出
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            dialog.dismiss();
-            Start.this.finish();
-            System.exit(0);
-
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+//    // 按两次返回键退出
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            dialog.dismiss();
+//            Start.this.finish();
+//            System.exit(0);
+//
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
 }
