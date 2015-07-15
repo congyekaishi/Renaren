@@ -1,29 +1,40 @@
 package com.renaren;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-
-import com.renaren.tools.ConstUtil;
-import com.renaren.view.LJWebView;
-import com.renaren.view.TitleBarView;
+import java.util.HashMap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler.Callback;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
-import android.webkit.WebChromeClient;
+import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
-public class MBTIReportActivity extends Activity {
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.onekeyshare.OnekeyShareTheme;
+
+import com.mob.tools.utils.UIHandler;
+import com.renaren.tools.ConstUtil;
+import com.renaren.view.LJWebView;
+import com.renaren.view.TitleBarView;
+
+public class MBTIReportActivity extends Activity implements Callback {
 	@InjectView(R.id.layout_main_body)
 	LinearLayout main_body;
 
@@ -46,17 +57,38 @@ public class MBTIReportActivity extends Activity {
 		ButterKnife.inject(this);
 		mTitleBarView.setBtnLeft(R.drawable.boss_unipay_icon_back, "返回");
 		mTitleBarView.setTitleText("测评报告");
+		mTitleBarView.setRightText("分享");
+		reportWebView = (LJWebView) findViewById(R.id.reportWebView);
+		sp = getSharedPreferences("login", MODE_PRIVATE);
+		Intent intent = getIntent();
+		cpCode = intent.getStringExtra("cpCode");
+		url = ConstUtil.REPORT_PRINT + cpCode;
 		mTitleBarView.setBtnLeftOnclickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				finish();
 			}
 		});
-		reportWebView = (LJWebView) findViewById(R.id.reportWebView);
-		sp = getSharedPreferences("login", MODE_PRIVATE);
-		Intent intent = getIntent();
-		cpCode = intent.getStringExtra("cpCode");
-		url = ConstUtil.REPORT_PRINT + cpCode;
+		mTitleBarView.setTvRightOnclickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// 分享点击事件
+				OnekeyShare oks = new OnekeyShare();
+				// // 分享时Notification的图标和文字
+				// oks.setNotification(R.drawable.ic_launcher,
+				// MainActivity.this.getString(R.string.app_name));
+				// text是分享文本，所有平台都需要这个字段
+				oks.setTitle("测评报告");
+				oks.setTitleUrl(ConstUtil.REPORT_PRINT + cpCode);
+				oks.setUrl(ConstUtil.REPORT_PRINT + cpCode);
+				oks.setText("分享内容");
+				oks.setImageUrl(ConstUtil.REPORT_PRINT + cpCode);
+				oks.setSilent(false);
+				oks.setDialogMode();
+				oks.show(v.getContext());
+			}
+		});
 
 		initWebview(url);
 
@@ -123,6 +155,59 @@ public class MBTIReportActivity extends Activity {
 			}
 		});
 		reportWebView.loadUrl(url);
+	}
+
+	public void onComplete(Platform plat, int action,
+			HashMap<String, Object> res) {
+
+		Message msg = new Message();
+		msg.arg1 = 1;
+		msg.arg2 = action;
+		msg.obj = plat;
+		UIHandler.sendMessage(msg, this);
+	}
+
+	public void onCancel(Platform palt, int action) {
+		Message msg = new Message();
+		msg.arg1 = 3;
+		msg.arg2 = action;
+		msg.obj = palt;
+		UIHandler.sendMessage(msg, this);
+	}
+
+	public void onError(Platform palt, int action, Throwable t) {
+		t.printStackTrace();
+
+		Message msg = new Message();
+		msg.arg1 = 2;
+		msg.arg2 = action;
+		msg.obj = palt;
+		UIHandler.sendMessage(msg, this);
+	}
+
+	public boolean handleMessage(Message msg) {
+		Platform plat = (Platform) msg.obj;
+		// String text = MainActivity.actionToString(msg.arg2);
+		switch (msg.arg1) {
+		case 1: {
+			// 成功
+			Toast.makeText(getApplicationContext(), "分享成功", 0).show();
+		}
+			break;
+		case 2: {
+			// 失败
+			Toast.makeText(getApplicationContext(), "分享失败", 0).show();
+		}
+			break;
+		case 3: {
+			// 取消
+			Toast.makeText(getApplicationContext(), "分享取消", 0).show();
+		}
+			break;
+		}
+
+		// Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+		return false;
 	}
 
 }

@@ -18,6 +18,7 @@ public class TitleBarView extends RelativeLayout {
 	private Context mContext;
 	private Button btnLeft;
 	private TextView tv_center;
+	private TextView tv_right;
 	public TitleBarView(Context context){
 		super(context);
 		mContext=context;
@@ -34,6 +35,7 @@ public class TitleBarView extends RelativeLayout {
 		LayoutInflater.from(mContext).inflate(R.layout.common_title_bar, this);
 		btnLeft=(Button) findViewById(R.id.title_btn_left);
 		tv_center=(TextView) findViewById(R.id.title_txt);
+		tv_right=(TextView) findViewById(R.id.title_tv_right);
 		
 	}
 	
@@ -55,6 +57,10 @@ public class TitleBarView extends RelativeLayout {
 		btnLeft.setText(txtRes);
 	}
 
+	public void setRightText(String txtRes){
+		tv_right.setText(txtRes);
+	}
+	
 	public void setTitleText(String txtRes){
 		tv_center.setText(txtRes);
 	}
@@ -63,9 +69,14 @@ public class TitleBarView extends RelativeLayout {
 		btnLeft.setOnClickListener(listener);
 	}
 	
+	public void setTvRightOnclickListener(OnClickListener listener){
+		tv_right.setOnClickListener(listener);
+	}
+	
 	public void destoryView(){
 		btnLeft.setText(null);
 		tv_center.setText(null);
+		tv_right.setText(null);
 	}
 
 }
