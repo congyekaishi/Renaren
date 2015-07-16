@@ -30,10 +30,8 @@ import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import receiver.NetReceiver;
 
 public class MainActivity extends Activity {
-    NetReceiver mReceiver = new NetReceiver();
     IntentFilter mFilter = new IntentFilter();
     @InjectView(R.id.title_bar)
     TitleBarView mTitleBarView;
@@ -69,7 +67,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        registerReceiver(mReceiver, mFilter);
         ButterKnife.inject(this);
         mTitleBarView.setCommonTitle(View.GONE, View.VISIBLE);
         mTitleBarView.setTitleText("欢迎回到人啊人");
@@ -235,7 +232,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        unregisterReceiver(mReceiver);
         super.onDestroy();
     }
 
