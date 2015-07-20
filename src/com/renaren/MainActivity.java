@@ -47,6 +47,7 @@ public class MainActivity extends Activity {
     RelativeLayout recommend;
     RelativeLayout bbs;
     RelativeLayout train;
+    RelativeLayout face;
 
     SharedPreferences sp;
 
@@ -87,6 +88,7 @@ public class MainActivity extends Activity {
         recommend = (RelativeLayout) findViewById(R.id.recommend);
         bbs = (RelativeLayout) findViewById(R.id.bbs);
         train = (RelativeLayout) findViewById(R.id.train);
+        face = (RelativeLayout) findViewById(R.id.face);
 
         userInfo.setOnClickListener(listener);
         appraisal.setOnClickListener(listener);
@@ -94,6 +96,7 @@ public class MainActivity extends Activity {
         recommend.setOnClickListener(listener);
         bbs.setOnClickListener(listener);
         train.setOnClickListener(listener);
+        face.setOnClickListener(listener);
 
         sp = getSharedPreferences("login", 0);
         token = sp.getString("token", null);
@@ -152,6 +155,11 @@ public class MainActivity extends Activity {
                     Intent intentIntroduce = new Intent(getApplicationContext(),
                             IntroduceActivity.class);
                     startActivity(intentIntroduce);
+                    break;
+                case R.id.face:
+                	Intent intentFace = new Intent(getApplicationContext(),
+                            FaceActivity.class);
+                    startActivity(intentFace);
                     break;
                 case R.id.loginOut:
                     sp = getSharedPreferences("login", 0);

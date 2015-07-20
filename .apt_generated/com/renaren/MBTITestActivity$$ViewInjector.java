@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class MBTITestActivity$$ViewInjector {
   public static void inject(Finder finder, final com.renaren.MBTITestActivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131361833, "field 'main_body'");
+    view = finder.findRequiredView(source, 2131361834, "field 'main_body'");
     target.main_body = (android.widget.LinearLayout) view;
     view = finder.findRequiredView(source, 2131361792, "field 'mTitleBarView'");
     target.mTitleBarView = (com.renaren.view.TitleBarView) view;

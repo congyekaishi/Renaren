@@ -39,7 +39,6 @@ public class IntroduceActivity extends Activity {
 	TitleBarView mTitleBarView;
 	@InjectView(R.id.newCode)
 	EditText etNewCode;
-
 	@InjectView(R.id.addCode)
 	Button addCode;
 

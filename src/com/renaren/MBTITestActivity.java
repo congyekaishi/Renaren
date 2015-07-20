@@ -133,11 +133,9 @@ public class MBTITestActivity extends Activity {
 		// cookieManager.removeSessionCookie();
 		// String pre_user_auth= sp.getString("token", null);
 		// String gmt = FormatDate.nDaysAfterNowDate(30).toGMTString();
-		String a;
-
 		cookieManager.setCookie(url,
 				"pre_user_auth=" + URLEncoder.encode(sp.getString("token", null)) + ";domain="
-						+ ConstUtil.COOKIE_DOMAIN + ";path=/;expires=3600");
+						+ ConstUtil.COOKIE_DOMAIN + ";path=/;expires=0");
 		CookieSyncManager.getInstance().sync();
 	}
 
