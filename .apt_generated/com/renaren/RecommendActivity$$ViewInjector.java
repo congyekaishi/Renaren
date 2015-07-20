@@ -9,7 +9,7 @@ public class RecommendActivity$$ViewInjector {
     View view;
     view = finder.findRequiredView(source, 2131361792, "field 'mTitleBarView'");
     target.mTitleBarView = (com.renaren.view.TitleBarView) view;
-    view = finder.findRequiredView(source, 2131361834, "field 'main_body'");
+    view = finder.findRequiredView(source, 2131361838, "field 'main_body'");
     target.main_body = (android.widget.LinearLayout) view;
   }
 

@@ -41,10 +41,6 @@
             android:name="com.renaren.LoginActivity"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
-            android:name="com.renaren.FaceActivity"
-            android:screenOrientation="portrait" >
-        </activity>
         <activity
             android:name="com.renaren.MainActivity"
             android:screenOrientation="portrait" >
@@ -84,6 +80,10 @@
         </activity>
         <activity
             android:name="com.renaren.ModifyPasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.renaren.FaceMasterActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity

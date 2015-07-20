@@ -1,6 +1,5 @@
 package com.renaren.beans;
 
-import java.util.Date;
 
 public class UserBean {
 

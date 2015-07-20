@@ -82,7 +82,7 @@ public class MBTIReportActivity extends Activity implements Callback {
 				oks.setTitle("测评报告");
 				oks.setTitleUrl(ConstUtil.REPORT_PRINT + cpCode);
 				oks.setUrl(ConstUtil.REPORT_PRINT + cpCode);
-				oks.setText("分享内容");
+				oks.setText("哎哟,挺准的");
 				oks.setImageUrl(ConstUtil.REPORT_PRINT + cpCode);
 				oks.setSilent(false);
 				oks.setDialogMode();
